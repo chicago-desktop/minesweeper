@@ -1,7 +1,7 @@
 version: "1.0"
 namespace: chicago.minesweeper
 
-# Minesweeper for the Windows 95 shell, in three layers: the rules are the
+# Minesweeper for the Chicago shell, in three layers: the rules are the
 # pure library `game` (no clock and no randomness of its own — the window
 # hands it a seed), the window as data is the pure library `view` (the
 # component tree and what an action does), and `window` is the process that
@@ -13,14 +13,14 @@ entries:
     kind: ns.definition
     meta:
       title: Minesweeper
-      description: Minesweeper for the Windows 95 shell — three levels, flags and a flag mode, chording, the smiley and the timer.
+      description: Minesweeper for the Chicago desktop — three levels, flags and a flag mode, chording, the smiley and the timer.
 
   # ─── Dependencies ────────────────────────────────────────────────────
   - version: "*"
     name: dep.chicago.shell
     kind: ns.dependency
     meta:
-      comment: The Windows 95 shell — its SDK lays out and draws the window, its image packs bring the pictures.
+      comment: The Chicago shell — its SDK lays out and draws the window, its image packs bring the pictures.
     component: chicago/shell
 
   - version: "*"

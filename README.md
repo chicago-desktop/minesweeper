@@ -1,6 +1,6 @@
-# chicago/minesweeper — Minesweeper for the Windows 95 shell
+# chicago/minesweeper — Minesweeper for the Chicago desktop
 
-Minesweeper as Windows 95 had it, for the terminal desktop of
+Minesweeper as the mid-nineties desktops had it, for the Chicago desktop of
 [chicago/shell](https://github.com/chicago-desktop/shell): the three
 levels, flags, chording, the smiley and the timer. It lies in the Start menu
 under **Programs → Games**.
@@ -42,8 +42,9 @@ declares the `gfx` module, which the release runtime does not have, and
 `wippy` from PATH does not load it at all. The Makefile uses
 `~/repos/wippy/runtime/dist/wippy-linux-amd64`; override it with `WIPPY=`.
 
-Until the shell and its base are in the Hub, `.wippy.yaml` takes them from
-the neighbouring working copies `../windows-module` and `../kickside-module`.
+Modules are resolved from their GitHub repositories by tag (v0.2.0 is the
+first); until the runtime does that, `.wippy.yaml` takes the shell and its
+base from the neighbouring working copies `../windows-module` and `../kickside-module`.
 
 ## Tests
 
