@@ -16,19 +16,24 @@ entries:
       description: Minesweeper for the Chicago desktop — three levels, flags and a flag mode, chording, the smiley and the timer.
 
   # ─── Dependencies ────────────────────────────────────────────────────
-  - version: "*"
+  # The shell and the base are resolved from their GitHub repositories by
+  # tag — `component` names the repository, the module keeps its own name
+  # (chicago/shell, chicago/tui-desktop) in the lock. A compatibility range,
+  # never an exact version: the lock holds the exact one, and the range says
+  # what the module was written against (v0.2.0 is the first tag of both).
+  - version: ">=0.2.0"
     name: dep.chicago.shell
     kind: ns.dependency
     meta:
       comment: The Chicago shell — its SDK lays out and draws the window, its image packs bring the pictures.
-    component: chicago/shell
+    component: github.com/chicago-desktop/shell
 
-  - version: "*"
+  - version: ">=0.2.0"
     name: dep.chicago.tui_desktop
     kind: ns.dependency
     meta:
       comment: The desktop base — the window asks its compositor for the size a level needs.
-    component: chicago/tui-desktop
+    component: github.com/chicago-desktop/tui-desktop
 
   # chicago.minesweeper:images
   #

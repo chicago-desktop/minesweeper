@@ -37,14 +37,20 @@ and `chicago/tui-desktop` (the compositor it asks for the window's size).
 
 ## Requirements
 
-**A local runtime build is required**, as for the shell itself: the shell
-declares the `gfx` module, which the release runtime does not have, and
-`wippy` from PATH does not load it at all. The Makefile uses
+**A build of the runtime fork from its releases is required**
+([chicago-desktop/runtime](https://github.com/chicago-desktop/runtime),
+`v0.3.40a-chicago.2` or newer), as for the shell itself: it resolves the
+shell and the base from GitHub by tag, and the shell declares the `gfx`
+module, which the release runtime does not have — `wippy` from PATH does
+not load it at all. The Makefile uses
 `~/repos/wippy/runtime/dist/wippy-linux-amd64`; override it with `WIPPY=`.
 
-Modules are resolved from their GitHub repositories by tag (v0.2.0 is the
-first); until the runtime does that, `.wippy.yaml` takes the shell and its
-base from the neighbouring working copies `../windows-module` and `../kickside-module`.
+`chicago/shell` and `chicago/tui-desktop` are resolved from their GitHub
+repositories by tag (`component: github.com/chicago-desktop/shell`,
+`version: ">=0.2.0"` in `src/_index.yaml`; v0.2.0 is the first tag). No
+working copy of either is needed beside the module: `cd test && wippy
+update` writes them into `test/wippy.lock`, the first time by cloning them
+into `~/.wippy/git`.
 
 ## Tests
 
@@ -53,8 +59,8 @@ make lint     # late locals, then wippy lint of this namespace
 make test     # the harness in test/: the rules, the window, a shot
 ```
 
-`test/` is a standalone harness: it replaces this module with `..` and the
-shell and the base with their working copies, and runs
+`test/` is a standalone harness: it replaces this module with `..`, takes
+the shell and the base from GitHub by the tags in `test/wippy.lock`, and runs
 `test/src/*_test.lua`: `game_test` (the rules), `view_test` (the window as
 data, its layout at every level in cells and pixels) and `window_test` (the
 registry entry, the pictures, the process). `view_test` writes

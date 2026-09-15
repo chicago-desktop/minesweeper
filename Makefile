@@ -7,9 +7,12 @@ SHELL := bash
 
 .PHONY: lint test
 
-# The shell this game runs in declares the `gfx` module, and only the local
-# runtime build has it: `wippy` from PATH does not load the shell at all and
-# says only "node with ID … not found". Override with `make test WIPPY=wippy`.
+# The shell this game runs in declares the `gfx` module, and only the runtime
+# fork has it (chicago-desktop/runtime, a build from its releases,
+# v0.3.40a-chicago.2 or newer — the one that also resolves the shell and the
+# base from their GitHub repositories by tag): `wippy` from PATH does not
+# load the shell at all and says only "node with ID … not found". Point
+# WIPPY at the fork's binary: `make test WIPPY=…`.
 WIPPY ?= /home/butschster/repos/wippy/runtime/dist/wippy-linux-amd64
 TEST_HOST := wippy.terminal:host
 
