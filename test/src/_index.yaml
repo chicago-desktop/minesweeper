@@ -37,10 +37,10 @@ entries:
     modules: [tty, gfx, fs]
     imports:
       test: wippy.test:test
-      ui: butschster.windows.sdk:ui
-      app: butschster.windows.sdk:app
-      render: butschster.windows.sdk:render
-      rasters: butschster.windows.shell:rasters
+      ui: windows.shell.sdk:ui
+      app: windows.shell.sdk:app
+      render: windows.shell.sdk:render
+      rasters: windows.shell.theme:rasters
       game: windows.minesweeper:game
       view: windows.minesweeper:view
 
@@ -56,8 +56,8 @@ entries:
     modules: [time, gfx, fs, registry]
     imports:
       test: wippy.test:test
-      app: butschster.windows.sdk:app
-      images: butschster.windows.shell:images
+      app: windows.shell.sdk:app
+      images: windows.shell.theme:images
       view: windows.minesweeper:view
       window: windows.minesweeper:window
 

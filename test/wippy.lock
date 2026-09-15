@@ -2,9 +2,9 @@ directories:
     modules: .wippy
     src: ./src
 modules:
-    - name: butschster/tui-desktop
+    - name: windows/tui-desktop
       version: 0.0.0
-    - name: butschster/windows
+    - name: windows/shell
       version: 0.0.0
     - name: windows/minesweeper
       version: 0.0.0

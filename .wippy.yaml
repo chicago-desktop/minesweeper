@@ -6,5 +6,5 @@ version: "1.0"
 # this module builds only on a machine that has those directories beside it.
 workspace:
   replacements:
-    butschster/windows: ../windows-module
-    butschster/tui-desktop: ../kickside-module
+    windows/shell: ../windows-module
+    windows/tui-desktop: ../kickside-module

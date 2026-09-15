@@ -16,7 +16,7 @@ local function define_tests()
             local entry = assert(registry.get("windows.minesweeper:window"))
             local meta: any = entry.meta
             test.eq(table.concat({meta.type, meta.title, meta.group, meta.image, meta.pixel_render, meta.pixel_state}, "|"),
-                "tui_desktop.window|Minesweeper|Programs/Games|windows.minesweeper:images/mine|butschster.windows.sdk:render|windows.minesweeper:window")
+                "tui_desktop.window|Minesweeper|Programs/Games|windows.minesweeper:images/mine|windows.shell.sdk:render|windows.minesweeper:window")
             test.eq(view.PACK, "windows.minesweeper:images/")
             local big, why = images.get(view.PACK .. "mine", 32)
             test.not_nil(big, "mine@32: " .. tostring(why))

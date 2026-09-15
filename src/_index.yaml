@@ -17,18 +17,18 @@ entries:
 
   # ─── Dependencies ────────────────────────────────────────────────────
   - version: "*"
-    name: dep.butschster.windows
+    name: dep.windows.shell
     kind: ns.dependency
     meta:
       comment: The Windows 95 shell — its SDK lays out and draws the window, its image packs bring the pictures.
-    component: butschster/windows
+    component: windows/shell
 
   - version: "*"
-    name: dep.butschster.tui_desktop
+    name: dep.windows.tui_desktop
     kind: ns.dependency
     meta:
       comment: The desktop base — the window asks its compositor for the size a level needs.
-    component: butschster/tui-desktop
+    component: windows/tui-desktop
 
   # windows.minesweeper:images
   #
@@ -58,7 +58,7 @@ entries:
       comment: "Minesweeper's window as data — the component tree of a game (the menu, the counters, the face, the field of buttons, the status bar, About) and what an action does to it; pure over the model."
     source: file://view.lua
     imports:
-      ui: butschster.windows.sdk:ui
+      ui: windows.shell.sdk:ui
       game: windows.minesweeper:game
 
   # windows.minesweeper:window
@@ -74,7 +74,7 @@ entries:
       width: 34
       height: 19
       window_type: app
-      pixel_render: butschster.windows.sdk:render
+      pixel_render: windows.shell.sdk:render
       pixel_state: windows.minesweeper:window
       comment: "Minesweeper — every cell a button, the right button flags, F is Flag mode, chording on a satisfied number, the face and F2 start again; a window on the shell SDK."
     source: file://window.lua
@@ -83,8 +83,8 @@ entries:
     modules:
       - time
     imports:
-      app: butschster.windows.sdk:app
-      desktop: butschster.tui_desktop.desktop:window_api
+      app: windows.shell.sdk:app
+      desktop: windows.tui_desktop.desktop:window_api
       view: windows.minesweeper:view
     security:
-      policies: [butschster.windows.security:view_state]
+      policies: [windows.shell.security:view_state]

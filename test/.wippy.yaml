@@ -5,12 +5,12 @@ version: "1.0"
 workspace:
   replacements:
     windows/minesweeper: ..
-    butschster/windows: ../../windows-module
-    butschster/tui-desktop: ../../kickside-module
+    windows/shell: ../../windows-module
+    windows/tui-desktop: ../../kickside-module
 override:
-  "butschster.tui_desktop:exec:default_env.HOME": "${env:HOME}"
-  "butschster.tui_desktop:exec:default_env.PATH": "${env:PATH}"
+  "windows.tui_desktop:exec:default_env.HOME": "${env:HOME}"
+  "windows.tui_desktop:exec:default_env.PATH": "${env:PATH}"
   # The shell and its base ask the application for the user group; the
   # harness's permissive scope stands in.
-  "butschster.windows.security:user_security_scope:data.default": app:user
-  "butschster.tui_desktop.security:user_security_scope:data.default": app:user
+  "windows.shell.security:user_security_scope:data.default": app:user
+  "windows.tui_desktop.security:user_security_scope:data.default": app:user
