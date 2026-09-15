@@ -6,7 +6,7 @@ version: "1.0"
 # shell instead, add a replacement for it here — and remove it again
 # before committing, or the module builds only on a machine that has that
 # directory beside it:
-#   chicago/shell: ../../windows-module
+#   chicago/shell: ../../shell
 workspace:
   replacements:
     chicago/minesweeper: ..

@@ -13,7 +13,7 @@ SHELL := bash
 # base from their GitHub repositories by tag): `wippy` from PATH does not
 # load the shell at all and says only "node with ID … not found". Point
 # WIPPY at the fork's binary: `make test WIPPY=…`.
-WIPPY ?= /home/butschster/repos/wippy/runtime/dist/wippy-linux-amd64
+WIPPY ?= $(CURDIR)/../runtime/dist/wippy-linux-amd64
 TEST_HOST := wippy.terminal:host
 
 # Late `local`s first: a local read above its declaration is read as a global,

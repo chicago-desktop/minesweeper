@@ -43,7 +43,7 @@ and `chicago/tui-desktop` (the compositor it asks for the window's size).
 shell and the base from GitHub by tag, and the shell declares the `gfx`
 module, which the release runtime does not have — `wippy` from PATH does
 not load it at all. The Makefile uses
-`~/repos/wippy/runtime/dist/wippy-linux-amd64`; override it with `WIPPY=`.
+`../runtime/dist/wippy-linux-amd64` (the fork checked out beside this directory); override it with `WIPPY=`.
 
 `chicago/shell` and `chicago/tui-desktop` are resolved from their GitHub
 repositories by tag (`component: github.com/chicago-desktop/shell`,
