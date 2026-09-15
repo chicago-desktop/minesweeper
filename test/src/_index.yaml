@@ -1,7 +1,7 @@
 version: "1.0"
 namespace: app
 
-# Standalone harness for butschster/windows-minesweeper. Provides the host
+# Standalone harness for windows/minesweeper. Provides the host
 # resources the boot needs (app:db, app:processes, a gateway and a router for
 # the shell's endpoints, env storage, a permissive actor scope) and runs the
 # co-located *_test.lua suites. Excluded from publish by the module's
@@ -18,12 +18,12 @@ entries:
       type: test
       comment: "Minesweeper's rules on fixed seeds and planted boards — the first click's safe zone and replay, a new board keeping the generator and Flag mode, flood opening, loss and win, chording, flags and Flag mode, the timer, the levels, the counter, the face and the status."
       group: Minesweeper
-      suite: butschster_windows_minesweeper
+      suite: windows_minesweeper
     source: file://game_test.lua
     method: run
     imports:
       test: wippy.test:test
-      game: butschster.windows.minesweeper:game
+      game: windows.minesweeper:game
 
   - name: view_test
     kind: function.lua
@@ -31,7 +31,7 @@ entries:
       type: test
       comment: "Minesweeper's view — the level from the argument, the field of buttons with numbers in colour, the counters and the face, the right button and Flag mode, a lost and a won field, the menu and About, the clock, the layout of every level in cells and pixels, and test/shots/minesweeper.png."
       group: Minesweeper
-      suite: butschster_windows_minesweeper
+      suite: windows_minesweeper
     source: file://view_test.lua
     method: run
     modules: [tty, gfx, fs]
@@ -41,8 +41,8 @@ entries:
       app: butschster.windows.sdk:app
       render: butschster.windows.sdk:render
       rasters: butschster.windows.shell:rasters
-      game: butschster.windows.minesweeper:game
-      view: butschster.windows.minesweeper:view
+      game: windows.minesweeper:game
+      view: windows.minesweeper:view
 
   - name: window_test
     kind: function.lua
@@ -50,7 +50,7 @@ entries:
       type: test
       comment: "Minesweeper's window process — the registry entry in Programs/Games, the pack's pictures found by the shell, and the process running the view with a seed and the fit timer."
       group: Minesweeper
-      suite: butschster_windows_minesweeper
+      suite: windows_minesweeper
     source: file://window_test.lua
     method: run
     modules: [time, gfx, fs, registry]
@@ -58,8 +58,8 @@ entries:
       test: wippy.test:test
       app: butschster.windows.sdk:app
       images: butschster.windows.shell:images
-      view: butschster.windows.minesweeper:view
-      window: butschster.windows.minesweeper:window
+      view: windows.minesweeper:view
+      window: windows.minesweeper:window
 
   - name: shots
     kind: fs.directory
@@ -125,7 +125,7 @@ entries:
     kind: ns.dependency
     meta:
       comment: The module under test; its source is replaced with ../ in .wippy.yaml.
-    component: "butschster/windows-minesweeper"
+    component: "windows/minesweeper"
 
   - name: minesweeper_harness.dep.migration
     version: "*"

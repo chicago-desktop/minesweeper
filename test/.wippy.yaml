@@ -4,7 +4,7 @@ version: "1.0"
 # suites run with `wippy test`.
 workspace:
   replacements:
-    butschster/windows-minesweeper: ..
+    windows/minesweeper: ..
     butschster/windows: ../../windows-module
     butschster/tui-desktop: ../../kickside-module
 override:

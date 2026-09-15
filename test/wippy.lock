@@ -6,7 +6,7 @@ modules:
       version: 0.0.0
     - name: butschster/windows
       version: 0.0.0
-    - name: butschster/windows-minesweeper
+    - name: windows/minesweeper
       version: 0.0.0
     - name: wippy/bootloader
       version: 0.3.14
