@@ -1,0 +1,90 @@
+version: "1.0"
+namespace: butschster.windows.minesweeper
+
+# Minesweeper for the Windows 95 shell, in three layers: the rules are the
+# pure library `game` (no clock and no randomness of its own — the window
+# hands it a seed), the window as data is the pure library `view` (the
+# component tree and what an action does), and `window` is the process that
+# runs `view` on the shell's SDK and fits its size. The pictures are the
+# module's own image pack.
+
+entries:
+  - name: definition
+    kind: ns.definition
+    meta:
+      title: Minesweeper
+      description: Minesweeper for the Windows 95 shell — three levels, flags and a flag mode, chording, the smiley and the timer.
+
+  # ─── Dependencies ────────────────────────────────────────────────────
+  - version: "*"
+    name: dep.butschster.windows
+    kind: ns.dependency
+    meta:
+      comment: The Windows 95 shell — its SDK lays out and draws the window, its image packs bring the pictures.
+    component: butschster/windows
+
+  - version: "*"
+    name: dep.butschster.tui_desktop
+    kind: ns.dependency
+    meta:
+      comment: The desktop base — the window asks its compositor for the size a level needs.
+    component: butschster/tui-desktop
+
+  # butschster.windows.minesweeper:images
+  #
+  # The shell finds an image pack in the registry by its meta.type and names a
+  # picture `<entry>/<file>`: `butschster.windows.minesweeper:images/mine`.
+  # PNG in 32/ and 16/.
+  - name: images
+    kind: fs.directory
+    meta:
+      type: windows.images
+      comment: "Minesweeper's pictures — the mine at 32 and 16 px and the three faces at 16 px, an image pack of the shell."
+    base: module
+    directory: ./src/images
+    auto_init: false
+
+  # butschster.windows.minesweeper:game
+  - name: game
+    kind: library.lua
+    meta:
+      comment: "Minesweeper's rules, pure — the board, mines laid after the first click and never under or next to it, flood opening, chording, flags and flag mode, winning and losing, the counter and the timer."
+    source: file://game.lua
+
+  # butschster.windows.minesweeper:view
+  - name: view
+    kind: library.lua
+    meta:
+      comment: "Minesweeper's window as data — the component tree of a game (the menu, the counters, the face, the field of buttons, the status bar, About) and what an action does to it; pure over the model."
+    source: file://view.lua
+    imports:
+      ui: butschster.windows.sdk:ui
+      game: butschster.windows.minesweeper:game
+
+  # butschster.windows.minesweeper:window
+  - name: window
+    kind: process.lua
+    meta:
+      type: tui_desktop.window
+      title: Minesweeper
+      image: butschster.windows.minesweeper:images/mine
+      icon: "●"
+      group: Programs/Games
+      # Beginner's field; the window asks for the size of the level it plays.
+      width: 34
+      height: 19
+      window_type: app
+      pixel_render: butschster.windows.sdk:render
+      pixel_state: butschster.windows.minesweeper:window
+      comment: "Minesweeper — every cell a button, the right button flags, F is Flag mode, chording on a satisfied number, the face and F2 start again; a window on the shell SDK."
+    source: file://window.lua
+    method: main
+    # `time` — the seed of a new board.
+    modules:
+      - time
+    imports:
+      app: butschster.windows.sdk:app
+      desktop: butschster.tui_desktop.desktop:window_api
+      view: butschster.windows.minesweeper:view
+    security:
+      policies: [butschster.windows.security:view_state]

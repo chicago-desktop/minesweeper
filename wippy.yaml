@@ -1,0 +1,23 @@
+organization: butschster
+module: windows-minesweeper
+description: Minesweeper for the Windows 95 shell (butschster/windows) — three levels, flags and a flag mode, chording, the smiley and the timer; the rules are a pure library, the window a declarative SDK application.
+license: MIT
+repository: https://github.com/wippy-windows/minesweeper
+homepage: https://wippy.ai
+keywords:
+  - kickside
+  - tui
+  - terminal
+  - desktop
+  - game
+  - minesweeper
+exclude_meta:
+  type:
+    - test
+exclude:
+  - "wippy.lock"
+  - "app:**"
+  - "test/**"
+  - "test:**"
+  - ".wippy/**"
+  - ".wippy:**"

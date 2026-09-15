@@ -1,0 +1,16 @@
+version: "1.0"
+# The harness boots the module under test from `..` and the shell and its
+# base from the neighbouring working copies (neither is in the Hub yet);
+# suites run with `wippy test`.
+workspace:
+  replacements:
+    butschster/windows-minesweeper: ..
+    butschster/windows: ../../windows-module
+    butschster/tui-desktop: ../../kickside-module
+override:
+  "butschster.tui_desktop:exec:default_env.HOME": "${env:HOME}"
+  "butschster.tui_desktop:exec:default_env.PATH": "${env:PATH}"
+  # The shell and its base ask the application for the user group; the
+  # harness's permissive scope stands in.
+  "butschster.windows.security:user_security_scope:data.default": app:user
+  "butschster.tui_desktop.security:user_security_scope:data.default": app:user

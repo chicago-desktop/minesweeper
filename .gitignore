@@ -1,0 +1,7 @@
+.wippy/
+/wippy.lock
+/test/shots/
+*.log
+*.wapp
+.DS_Store
+__pycache__/
