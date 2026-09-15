@@ -1,4 +1,4 @@
-# windows/minesweeper — lint and test on the local runtime build.
+# chicago/minesweeper — lint and test on the local runtime build.
 
 # pipefail keeps the runner's exit code while its output is streamed and the
 # log is grepped afterwards.
@@ -20,7 +20,7 @@ TEST_HOST := wippy.terminal:host
 lint:
 	python3 tools/late-locals.py src
 	python3 tools/late-locals.py test
-	cd test && $(WIPPY) lint --ns windows.minesweeper --ns app
+	cd test && $(WIPPY) lint --ns chicago.minesweeper --ns app
 
 # The runner exits 0 when it discovers no tests; an empty discovery is always
 # a defect here, so the target fails on it. The shell brings a terminal host of

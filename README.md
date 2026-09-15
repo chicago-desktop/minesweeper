@@ -1,7 +1,7 @@
-# windows/minesweeper — Minesweeper for the Windows 95 shell
+# chicago/minesweeper — Minesweeper for the Windows 95 shell
 
 Minesweeper as Windows 95 had it, for the terminal desktop of
-[windows/shell](https://github.com/wippy-windows/windows): the three
+[chicago/shell](https://github.com/chicago-desktop/shell): the three
 levels, flags, chording, the smiley and the timer. It lies in the Start menu
 under **Programs → Games**.
 
@@ -26,14 +26,14 @@ for the client the field needs.
 
 | Entry | What |
 |---|---|
-| `windows.minesweeper:game` | the rules — a pure library: the board, laying the mines, flood opening, chording, flags and flag mode, winning and losing, the counter and the timer. No clock and no randomness of its own: the window hands in a seed (a linear congruential generator, so a seed replays a board) and ticks it once a second |
-| `windows.minesweeper:view` | the window as data — a pure library: the component tree of a game (the menu, the counters, the face, every cell a button, the status bar, About) and what an action does to the model |
-| `windows.minesweeper:window` | the process — runs `view` on the shell's SDK (`windows.shell.sdk:app`), hands it the first seed from the clock and fits the window to the level |
-| `windows.minesweeper:images` | the pictures — an image pack of the shell (`meta.type: windows.images`): `mine` at 32 and 16 px, `face_smile`, `face_dead`, `face_cool` at 16 px. The window names them `windows.minesweeper:images/<name>` |
+| `chicago.minesweeper:game` | the rules — a pure library: the board, laying the mines, flood opening, chording, flags and flag mode, winning and losing, the counter and the timer. No clock and no randomness of its own: the window hands in a seed (a linear congruential generator, so a seed replays a board) and ticks it once a second |
+| `chicago.minesweeper:view` | the window as data — a pure library: the component tree of a game (the menu, the counters, the face, every cell a button, the status bar, About) and what an action does to the model |
+| `chicago.minesweeper:window` | the process — runs `view` on the shell's SDK (`chicago.shell.sdk:app`), hands it the first seed from the clock and fits the window to the level |
+| `chicago.minesweeper:images` | the pictures — an image pack of the shell (`meta.type: chicago.images`): `mine` at 32 and 16 px, `face_smile`, `face_dead`, `face_cool` at 16 px. The window names them `chicago.minesweeper:images/<name>` |
 
 The module asks nothing of the application: no database, no router, no
-environment. It depends on `windows/shell` (the SDK, the image packs)
-and `windows/tui-desktop` (the compositor it asks for the window's size).
+environment. It depends on `chicago/shell` (the SDK, the image packs)
+and `chicago/tui-desktop` (the compositor it asks for the window's size).
 
 ## Requirements
 

@@ -1,7 +1,7 @@
 version: "1.0"
 namespace: app
 
-# Standalone harness for windows/minesweeper. Provides the host
+# Standalone harness for chicago/minesweeper. Provides the host
 # resources the boot needs (app:db, app:processes, a gateway and a router for
 # the shell's endpoints, env storage, a permissive actor scope) and runs the
 # co-located *_test.lua suites. Excluded from publish by the module's
@@ -18,12 +18,12 @@ entries:
       type: test
       comment: "Minesweeper's rules on fixed seeds and planted boards — the first click's safe zone and replay, a new board keeping the generator and Flag mode, flood opening, loss and win, chording, flags and Flag mode, the timer, the levels, the counter, the face and the status."
       group: Minesweeper
-      suite: windows_minesweeper
+      suite: chicago_minesweeper
     source: file://game_test.lua
     method: run
     imports:
       test: wippy.test:test
-      game: windows.minesweeper:game
+      game: chicago.minesweeper:game
 
   - name: view_test
     kind: function.lua
@@ -31,18 +31,18 @@ entries:
       type: test
       comment: "Minesweeper's view — the level from the argument, the field of buttons with numbers in colour, the counters and the face, the right button and Flag mode, a lost and a won field, the menu and About, the clock, the layout of every level in cells and pixels, and test/shots/minesweeper.png."
       group: Minesweeper
-      suite: windows_minesweeper
+      suite: chicago_minesweeper
     source: file://view_test.lua
     method: run
     modules: [tty, gfx, fs]
     imports:
       test: wippy.test:test
-      ui: windows.shell.sdk:ui
-      app: windows.shell.sdk:app
-      render: windows.shell.sdk:render
-      rasters: windows.shell.theme:rasters
-      game: windows.minesweeper:game
-      view: windows.minesweeper:view
+      ui: chicago.shell.sdk:ui
+      app: chicago.shell.sdk:app
+      render: chicago.shell.sdk:render
+      rasters: chicago.shell.theme:rasters
+      game: chicago.minesweeper:game
+      view: chicago.minesweeper:view
 
   - name: window_test
     kind: function.lua
@@ -50,16 +50,16 @@ entries:
       type: test
       comment: "Minesweeper's window process — the registry entry in Programs/Games, the pack's pictures found by the shell, and the process running the view with a seed and the fit timer."
       group: Minesweeper
-      suite: windows_minesweeper
+      suite: chicago_minesweeper
     source: file://window_test.lua
     method: run
     modules: [time, gfx, fs, registry]
     imports:
       test: wippy.test:test
-      app: windows.shell.sdk:app
-      images: windows.shell.theme:images
-      view: windows.minesweeper:view
-      window: windows.minesweeper:window
+      app: chicago.shell.sdk:app
+      images: chicago.shell.theme:images
+      view: chicago.minesweeper:view
+      window: chicago.minesweeper:window
 
   - name: shots
     kind: fs.directory
@@ -125,7 +125,7 @@ entries:
     kind: ns.dependency
     meta:
       comment: The module under test; its source is replaced with ../ in .wippy.yaml.
-    component: "windows/minesweeper"
+    component: "chicago/minesweeper"
 
   - name: minesweeper_harness.dep.migration
     version: "*"

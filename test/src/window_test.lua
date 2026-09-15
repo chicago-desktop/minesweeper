@@ -13,11 +13,11 @@ local definition = window.definition
 local function define_tests()
     test.describe("Minesweeper window", function()
         test.it("is a Programs/Games window on the shell SDK with the pack's mine; every picture of the pack is found", function()
-            local entry = assert(registry.get("windows.minesweeper:window"))
+            local entry = assert(registry.get("chicago.minesweeper:window"))
             local meta: any = entry.meta
             test.eq(table.concat({meta.type, meta.title, meta.group, meta.image, meta.pixel_render, meta.pixel_state}, "|"),
-                "tui_desktop.window|Minesweeper|Programs/Games|windows.minesweeper:images/mine|windows.shell.sdk:render|windows.minesweeper:window")
-            test.eq(view.PACK, "windows.minesweeper:images/")
+                "tui_desktop.window|Minesweeper|Programs/Games|chicago.minesweeper:images/mine|chicago.shell.sdk:render|chicago.minesweeper:window")
+            test.eq(view.PACK, "chicago.minesweeper:images/")
             local big, why = images.get(view.PACK .. "mine", 32)
             test.not_nil(big, "mine@32: " .. tostring(why))
             for _, name in ipairs({"mine", "face_smile", "face_dead", "face_cool"}) do

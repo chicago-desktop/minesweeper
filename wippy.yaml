@@ -1,8 +1,8 @@
-organization: windows
+organization: chicago
 module: minesweeper
-description: Minesweeper for the Windows 95 shell (windows/shell) — three levels, flags and a flag mode, chording, the smiley and the timer; the rules are a pure library, the window a declarative SDK application.
+description: Minesweeper for the Windows 95 shell (chicago/shell) — three levels, flags and a flag mode, chording, the smiley and the timer; the rules are a pure library, the window a declarative SDK application.
 license: MIT
-repository: https://github.com/wippy-windows/minesweeper
+repository: https://github.com/chicago-desktop/minesweeper
 homepage: https://wippy.ai
 keywords:
   - kickside
@@ -23,4 +23,4 @@ exclude:
   - ".wippy:**"
 # The image pack is packed only when named here (fs.directory -> fs.embed).
 embed:
-  - windows.minesweeper:images
+  - chicago.minesweeper:images

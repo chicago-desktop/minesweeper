@@ -4,13 +4,13 @@ version: "1.0"
 # suites run with `wippy test`.
 workspace:
   replacements:
-    windows/minesweeper: ..
-    windows/shell: ../../windows-module
-    windows/tui-desktop: ../../kickside-module
+    chicago/minesweeper: ..
+    chicago/shell: ../../windows-module
+    chicago/tui-desktop: ../../kickside-module
 override:
-  "windows.tui_desktop:exec:default_env.HOME": "${env:HOME}"
-  "windows.tui_desktop:exec:default_env.PATH": "${env:PATH}"
+  "chicago.tui_desktop:exec:default_env.HOME": "${env:HOME}"
+  "chicago.tui_desktop:exec:default_env.PATH": "${env:PATH}"
   # The shell and its base ask the application for the user group; the
   # harness's permissive scope stands in.
-  "windows.shell.security:user_security_scope:data.default": app:user
-  "windows.tui_desktop.security:user_security_scope:data.default": app:user
+  "chicago.shell.security:user_security_scope:data.default": app:user
+  "chicago.tui_desktop.security:user_security_scope:data.default": app:user

@@ -11,7 +11,7 @@ local game = require("game")
 local view = {}
 
 -- The module's own image pack (`<pack entry>/<file>`).
-view.PACK = "windows.minesweeper:images/"
+view.PACK = "chicago.minesweeper:images/"
 view.INK = {"#0000ff", "#008000", "#ff0000", "#000080", "#800000", "#008080", "#000000", "#808080"}
 view.RED, view.BLACK = "#ff0000", "#000000"
 view.MINE, view.FLAG, view.WRONG = "●", "►", "X"
